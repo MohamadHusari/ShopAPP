@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.eddd777f.chunk.css",
-    "main.js": "/static/js/main.934db849.chunk.js",
-    "main.js.map": "/static/js/main.934db849.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.76197a33.js",
-    "runtime-main.js.map": "/static/js/runtime-main.76197a33.js.map",
-    "static/css/2.d781fd4c.chunk.css": "/static/css/2.d781fd4c.chunk.css",
-    "static/js/2.2b2cd583.chunk.js": "/static/js/2.2b2cd583.chunk.js",
-    "static/js/2.2b2cd583.chunk.js.map": "/static/js/2.2b2cd583.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.7bdb52c54e6cfe8bd931469b3968f6ae.js": "/precache-manifest.7bdb52c54e6cfe8bd931469b3968f6ae.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.d781fd4c.chunk.css.map": "/static/css/2.d781fd4c.chunk.css.map",
-    "static/css/main.eddd777f.chunk.css.map": "/static/css/main.eddd777f.chunk.css.map",
-    "static/media/logo.svg": "/static/media/logo.25bf045c.svg"
+    "main.css": "/ShopApp/static/css/main.eddd777f.chunk.css",
+    "main.js": "/ShopApp/static/js/main.0e2e7b9d.chunk.js",
+    "main.js.map": "/ShopApp/static/js/main.0e2e7b9d.chunk.js.map",
+    "runtime-main.js": "/ShopApp/static/js/runtime-main.baff22a8.js",
+    "runtime-main.js.map": "/ShopApp/static/js/runtime-main.baff22a8.js.map",
+    "static/css/2.d781fd4c.chunk.css": "/ShopApp/static/css/2.d781fd4c.chunk.css",
+    "static/js/2.2ea184f5.chunk.js": "/ShopApp/static/js/2.2ea184f5.chunk.js",
+    "static/js/2.2ea184f5.chunk.js.map": "/ShopApp/static/js/2.2ea184f5.chunk.js.map",
+    "index.html": "/ShopApp/index.html",
+    "precache-manifest.034f3b764a3e44ae619b2336e0cc61bf.js": "/ShopApp/precache-manifest.034f3b764a3e44ae619b2336e0cc61bf.js",
+    "service-worker.js": "/ShopApp/service-worker.js",
+    "static/css/2.d781fd4c.chunk.css.map": "/ShopApp/static/css/2.d781fd4c.chunk.css.map",
+    "static/css/main.eddd777f.chunk.css.map": "/ShopApp/static/css/main.eddd777f.chunk.css.map",
+    "static/media/logo.svg": "/ShopApp/static/media/logo.25bf045c.svg"
   }
 }
