@@ -24,7 +24,7 @@ class BuyCoursesPage extends Component {
             sortby: '',
             currentPage: 1,
             exchangeto: 'Choose...',
-            errormsg:'No results'
+            errormsg: 'No results'
         };
         this.readmoreisopened = null;
         this.exchangevalues = null;
@@ -46,7 +46,7 @@ class BuyCoursesPage extends Component {
      * 3) Check localstorage cart (key) if exist that mean there is saved cart items, transfer localstorage cart values to cart array in state (object)
      */
     componentDidMount() {
-        axios.get('https://testapi.io/api/MohamadHusari/courses').then(res => {
+        const firstRequest = axios.get('https://testapi.io/api/MohamadHusari/courses').then(res => {
             this.setState({courses: res.data.courses, loading: false, filtered: res.data.courses});
         }).catch(err => {
             this.setState({
@@ -54,16 +54,18 @@ class BuyCoursesPage extends Component {
                 errormsg: 'Can\'t load items data, please try again later'
             });
         });
-        axios.get('https://api.exchangeratesapi.io/latest?base=USD').then((res) => {
+        const secondRequest = axios.get('https://api.exchangeratesapi.io/latest?base=USD').then((res) => {
             this.exchangevalues = res.data.rates;
         }).catch(err => {
             this.exchangevalues = null;
         });
-        if (this.state.errormsg !=='No results' && localStorage.cart) {
-            this.setState({
-                cart: this.securels.get('cart')
-            }, () => this.clearCartPopup('Your cart isn\'t empty!!', 'Do you want to reset it?', 'warning'));
-        }
+        Promise.all([firstRequest, secondRequest]).then(() => {
+            if (this.state.errormsg === 'No results' && localStorage.cart) {
+                this.setState({
+                    cart: this.securels.get('cart')
+                }, () => this.clearCartPopup('Your cart isn\'t empty!!', 'Do you want to reset it?', 'warning'));
+            }
+        });
     };
 
     /**
@@ -99,8 +101,14 @@ class BuyCoursesPage extends Component {
             if (this.readmoreisopened === buttonref)
                 this.readmoreisopened = null;
             else {
-                this.readmoreisopened.current.click();
-                this.readmoreisopened = buttonref;
+                try {
+                    this.readmoreisopened.current.click();
+                } catch (error) {
+                    this.readmoreisopened = null;
+                } finally {
+                    this.readmoreisopened = buttonref;
+                }
+
             }
         }
     };
@@ -289,11 +297,7 @@ class BuyCoursesPage extends Component {
                                                     <Pagination totalPages={Math.ceil(filteredLength / 10)}
                                                                 currentPage={currentPage}
                                                                 onChange={(currentPage) => {
-                                                                    if (this.readmoreisopened !== null) {
-                                                                        this.readmoreisopened = null;
-                                                                    }
                                                                     this.setState({currentPage}, () => this.forceUpdate())
-
                                                                 }}/>
                                                 </ThemeProvider>
                                             </div>
